@@ -1,0 +1,6 @@
+**/.venv
+**/TODO.md
+**/.coverage
+**/coverage.xml
+**/testsuite.xml
+**/.pytest_cache
