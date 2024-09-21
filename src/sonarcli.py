@@ -266,6 +266,7 @@ def help():
         sonar [COMMAND]
 
     COMMANDS
+        help                        Show this help menu
         run                         Run sonarqube via docker
         scan                        Run sonar-scanner via docker
         wait                        Wait for sonarqube to be ready
@@ -273,6 +274,7 @@ def help():
     """
     )
     sys.exit(0)
+
 
 def handle_input():
     if len(sys.argv) == 1:
@@ -300,8 +302,6 @@ def handle_input():
             print("[ERROR] [INVALID_COMMAND] - Please, provide a valid command")
             help()
         
-
-
 
 def setup_project(project_name):
     create_project(project_name)
