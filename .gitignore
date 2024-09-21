@@ -6,3 +6,4 @@
 **/testsuite.xml
 **/.pytest_cache
 **/sonar.json
+**/.scannerwork
