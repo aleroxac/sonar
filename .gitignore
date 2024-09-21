@@ -1,6 +1,8 @@
 **/.venv
 **/TODO.md
+**/.coverage.out
 **/.coverage
 **/coverage.xml
 **/testsuite.xml
 **/.pytest_cache
+**/sonar.json

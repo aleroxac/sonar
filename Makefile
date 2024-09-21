@@ -1,28 +1,20 @@
-.PHONY: install-sonar-setup
-install-sonar-setup:
+.PHONY: install
+install:
 	@[ ! -e /usr/bin/virtualenv ] && python -m pip install --break-system-packages virtualenv || true
 	@[ ! -e ~/.virtualenvs ] && mkdir -v ~/.virtualenvs || true
-	@if [ ! -e ~/.virtualenvs/sonar-setup ]; then
-		python -m virtualenv ~/.virtualenvs/sonar-setup; \
-		~/.virtualenvs/sonar-setup/pip install -r sonar-setup/requirements.txt; \
+	@if [ ! -e ~/.virtualenvs/sonarcli ]; then
+		python -m virtualenv ~/.virtualenvs/sonarcli; \
+		~/.virtualenvs/sonarcli/pip install -r requirements.txt; \
 	fi
-	@if [ ! -e /usr/local/bin/sonar-setup ];then
-		sudo cp -v setup-sonarqube.py /usr/local/bin/sonar-setup; \
-		echo "Great! Now, you can run: sonar-setup"; \
-	fi
-
-.PHONY: install-wait-sonar
-install-sonar-setup:
-	@if [ ! -e /usr/local/bin/wait-sonar ]; then
-		sudo cp -v wait-sonar.sh /usr/local/bin/wait-sonar; \
-		echo "Great! Now, you can run: wait-sonar"; \
+	@if [ ! -e /usr/local/bin/sonarcli ];then
+		sudo cp -v sonarcli.py /usr/local/bin/sonar; \
+		echo "Great! Now, you can run: sonar"; \
 	fi
 
 .PHONY: uninstall
 uninstall:
-	@[ -e ~/.virtualenvs/sonar-setup ] && rm -rfv ~/.virtualenvs/sonar-setup || true
-	@[ -e /usr/local/bin/sonar-setup ] && rm -fv /usr/local/bin/sonar-setup || true
-	@[ -e /usr/local/bin/wait-sonar ] && rm -fv /usr/local/bin/wait-sonar || true
+	@[ -e ~/.virtualenvs/sonarcli ] && rm -rfv ~/.virtualenvs/sonarcli || true
+	@[ -e /usr/local/bin/sonar ] && rm -fv /usr/local/bin/sonar || true
 
 .PHONY: activate
 activate:
