@@ -5,8 +5,9 @@
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/aleroxac/sonar)
 
 
-# sonar
-Automation to setup sonarqube to be used on dev environments
+# sonarcli
+A command-line tool to make sonar execution, scans and setups easier
+
 
 
 ## Table of Content
@@ -24,6 +25,30 @@ Automation to setup sonarqube to be used on dev environments
 - [x] User creation
 - [x] Project creation
 - [x] QualityGate creation
+- [x] Run sonarqube via docker
+- [x] Wait for sonar to be ready
+- [x] Run sonar-scanner via docker
+
+
+## Demo Results
+<details>
+  <summary>Quality Gate</summary>
+
+![qualitygate](assets/qualitygate.png)
+</details>
+
+<details>
+  <summary>New Code</summary>
+
+![new-code](assets/project-overview-newcode.png)
+</details>
+
+
+<details>
+  <summary>Overall Code</summary>
+
+![overall-code](assets/project-overview-overallcode.png)
+</details>
 
 
 
@@ -32,8 +57,7 @@ Automation to setup sonarqube to be used on dev environments
 ├── requirements-dev.txt
 ├── requirements.txt
 └── src
-    ├── setup-sonarqube.py
-    └── wait-sonar.sh
+    └── sonarcli.py
 ```
 
 
@@ -49,14 +73,12 @@ Automation to setup sonarqube to be used on dev environments
 Before the installation make sure that you already have created the files bellow in your project
 - [sonar-project.properties](example/sonar-project.properties)
 - [sonar-qualitygate.json](example/sonar-qualitygate.json)
-- [coverage.ini](example/coverage.ini)
 
 
 
 ## Installation
 ``` shell
-git clone git@github.com/aleroxac/sonar.git
-cd sonar
+git clone git@github.com/aleroxac/sonarcli.git && cd sonarcli
 make install
 ```
 
@@ -64,30 +86,20 @@ make install
 
 ## Use mode
 ``` shell
-cd sonar/example
-wait-sonar
-sonar-setup > sonar.json
+cd sonarcli/examples/python
+make install
+make test
+sed -i "s|<source>${PWD}/src<\/source>|<source>/usr/src/src</source>|g" coverage.xml
 
-python -m pytest
-docker run --rm \
-    --network=host \
-    -e SONAR_SCANNER_OPTS=" \
-        -Dsonar.host.url=http://localhost:9000 \
-        -Dsonar.login=$(shell jq -r '.token' sonar.json) \
-        -Dsonar.scm.revision=$(shell git --no-pager log --max-count=1 --oneline --format='%H') \
-        -Dsonar.sources=/usr/src/src \
-        -Dsonar.python.coverage.reportPaths=/usr/src/coverage.xml \
-        -Dsonar.tests=/usr/src/tests \
-        -Dsonar.python.xunit.reportPath=/usr/src/testsuite.xml \
-        -Dproject.settings=sonar-project.properties" \
-    -v ${PWD}:/usr/src \
-    sonarsource/sonar-scanner-cli
+sonar run
+sonar wait
+sonar setup sample-app | jq > sonar.json
+sonar scan
 ```
 
 
 
 ## Uninstallation
 ``` shell
-cd sonar
 make uninstall
 ```
