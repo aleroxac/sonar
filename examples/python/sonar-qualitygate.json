@@ -1,0 +1,78 @@
+{
+    "newcode": [
+        {
+            "gateName": "dev",
+            "metric": "new_coverage",
+            "op": "LT",
+            "error": 100
+        },
+        {
+            "gateName": "dev",
+            "metric": "new_duplicated_lines_density",
+            "op": "GT",
+            "error": 0
+        },
+        {
+            "gateName": "dev",
+            "metric": "new_maintainability_rating",
+            "op": "GT",
+            "error": 0
+        },
+        {
+            "gateName": "dev",
+            "metric": "new_reliability_rating",
+            "op": "GT",
+            "error": 0
+        },
+        {
+            "gateName": "dev",
+            "metric": "new_security_hotspots_reviewed",
+            "op": "LT",
+            "error": 100
+        },
+        {
+            "gateName": "dev",
+            "metric": "new_security_rating",
+            "op": "GT",
+            "error": 0
+        }
+    ],
+    "overall": [
+        {
+            "gateName": "dev",
+            "metric": "coverage",
+            "op": "LT",
+            "error": 100
+        },
+        {
+            "gateName": "dev",
+            "metric": "duplicated_lines_density",
+            "op": "GT",
+            "error": 0
+        },
+        {
+            "gateName": "dev",
+            "metric": "maintainability_rating",
+            "op": "GT",
+            "error": 0
+        },
+        {
+            "gateName": "dev",
+            "metric": "reliability_rating",
+            "op": "GT",
+            "error": 0
+        },
+        {
+            "gateName": "dev",
+            "metric": "security_hotspots_reviewed",
+            "op": "LT",
+            "error": 100
+        },
+        {
+            "gateName": "dev",
+            "metric": "security_rating",
+            "op": "GT",
+            "error": 0
+        }
+    ]
+}
