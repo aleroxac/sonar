@@ -71,8 +71,8 @@ A command-line tool to make sonar execution, scans and setups easier
 
 ## Getting started
 Before the installation make sure that you already have created the files bellow in your project
-- [sonar-project.properties](example/sonar-project.properties)
-- [sonar-qualitygate.json](example/sonar-qualitygate.json)
+- [sonar-project.properties](examples/python/sonar-project.properties)
+- [sonar-qualitygate.json](examples/python/sonar-qualitygate.json)
 
 
 

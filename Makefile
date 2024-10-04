@@ -5,6 +5,7 @@ install:
 	@if [ ! -e ~/.virtualenvs/sonarcli ]; then
 		python -m virtualenv ~/.virtualenvs/sonarcli; \
 		~/.virtualenvs/sonarcli/pip install -r requirements.txt; \
+		~/.virtualenvs/sonarcli/pip install -r requirements-dev.txt; \
 	fi
 	@if [ ! -e /usr/local/bin/sonarcli ];then
 		sudo cp -v sonarcli.py /usr/local/bin/sonar; \
@@ -13,7 +14,7 @@ install:
 
 .PHONY: uninstall
 uninstall:
-	@[ -e ~/.virtualenvs/sonarcli ] && rm -rfv ~/.virtualenvs/sonarcli || true
+	@[ -e ~/.virtualenvs/sonarcli ] && rm -fv ~/.virtualenvs/sonarcli || true
 	@[ -e /usr/local/bin/sonar ] && rm -fv /usr/local/bin/sonar || true
 
 .PHONY: activate

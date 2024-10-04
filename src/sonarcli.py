@@ -270,7 +270,7 @@ def help():
         run                         Run sonarqube via docker
         scan                        Run sonar-scanner via docker
         wait                        Wait for sonarqube to be ready
-        setup   [PROJECT_NAME]      Setup sonarqube; create a user, project and quality gate
+        setup   [PROJECT_NAME]      Setup a new user, project and quality gate
     """
     )
     sys.exit(0)
