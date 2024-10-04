@@ -1,9 +1,22 @@
-**/.venv
+## misc
 **/TODO.md
-**/.coverage.out
-**/.coverage
-**/coverage.xml
-**/testsuite.xml
-**/.pytest_cache
+
+## sonar
 **/sonar.json
 **/.scannerwork
+
+## golang
+examples/golang/.coverage.out
+examples/golang/.coverage
+
+## python
+examples/python/.venv/
+examples/python/coverage.xml
+examples/python/testsuite.xml
+examples/python/.pytest_cache
+
+## node
+examples/javascript/node_modules
+examples/javascript/package-lock.json
+examples/javascript/yarn.lock
+examples/javascript/coverage/

@@ -65,7 +65,7 @@ A command-line tool to make sonar execution, scans and setups easier
 ## Languages Supported
 - [x] python
 - [x] golang
-- [ ] node
+- [x] javascript
 
 
 
