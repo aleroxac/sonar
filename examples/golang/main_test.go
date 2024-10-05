@@ -35,7 +35,7 @@ func TestStatusHandler(t *testing.T) {
 		t.Errorf("handler retornou o status errado: obteve %v, esperado %v", status, http.StatusOK)
 	}
 
-	expected := "OK"
+	expected := "UP"
 	if rr.Body.String() != expected {
 		t.Errorf("handler retornou o corpo errado: obteve %v, esperado %v", rr.Body.String(), expected)
 	}
